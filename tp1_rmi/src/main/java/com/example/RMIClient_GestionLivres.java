@@ -1,6 +1,5 @@
 package com.example;
 
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.List;
@@ -12,7 +11,7 @@ public class RMIClient_GestionLivres {
 
         try {
             Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-            LivreService service = (LivreService) registry.lookup("livreService");
+            LivreService service = (LivreService) registry.lookup("MyLivreService");
 
             Scanner sc = new Scanner(System.in);
             int choix;
@@ -38,7 +37,7 @@ public class RMIClient_GestionLivres {
 
                         Livre nouveauLivre = new Livre(titre, auteur, annee);
                         String message = service.ajouterLivre(nouveauLivre);
-                        System.out.println("✅ " + message);
+                        System.out.println(message);
                         break;
 
                     case 2:
@@ -46,19 +45,19 @@ public class RMIClient_GestionLivres {
                         String titreRecherche = sc.nextLine();
                         Livre livre = service.rechercherLivre(titreRecherche);
                         if (livre != null) {
-                            System.out.println("📖 Livre trouvé : " + livre.getTitre() + " - " +
+                            System.out.println("Livre trouvé : " + livre.getTitre() + " - " +
                                     livre.getAuteur() + " (" + livre.getAnneePublication() + ")");
                         } else {
-                            System.out.println("❌ Livre introuvable.");
+                            System.out.println(" Livre introuvable.");
                         }
                         break;
 
                     case 3:
                         List<Livre> livres = service.listerLivres();
                         if (livres.isEmpty()) {
-                            System.out.println("⚠️ Aucun livre enregistré.");
+                            System.out.println("Aucun livre enregistré.");
                         } else {
-                            System.out.println("📚 Liste des livres :");
+                            System.out.println("Liste des livres :");
                             for (Livre l : livres) {
                                 System.out.println("- " + l.getTitre() + " | " + l.getAuteur() +
                                         " | " + l.getAnneePublication());
@@ -67,11 +66,11 @@ public class RMIClient_GestionLivres {
                         break;
 
                     case 0:
-                        System.out.println("👋 Au revoir !");
+                        System.out.println("Au revoir !");
                         break;
 
                     default:
-                        System.out.println("⚠️ Choix invalide.");
+                        System.out.println("Choix invalide.");
                 }
             } while (choix != 0);
 

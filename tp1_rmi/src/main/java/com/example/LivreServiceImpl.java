@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LivreServiceImpl extends UnicastRemoteObject implements LivreService {
 
-  private List<Livre> livres;
+    private List<Livre> livres;
 
     protected LivreServiceImpl() throws RemoteException {
         super();
@@ -16,13 +16,18 @@ public class LivreServiceImpl extends UnicastRemoteObject implements LivreServic
 
     @Override
     public String ajouterLivre(Livre livre) {
+        livres.add(livre);
         return "Livre ajouté: " + livre.getTitre() + " par " + livre.getAuteur();
     }
 
     @Override
     public Livre rechercherLivre(String titre) {
-
-        return new Livre(titre, "Auteur Inconnu", 2024);
+        for (Livre livre : livres) {
+            if (livre.getTitre().equals(titre)) {
+                return livre;
+            }
+        }
+        return null;
     }
 
     @Override
