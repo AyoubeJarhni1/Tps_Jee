@@ -10,7 +10,8 @@ public class RMIServer_GestionLivres {
             LivreService livreService = new LivreServiceImpl();
             Registry registry= LocateRegistry.createRegistry(1099);
             registry.rebind ("MyLivreService", livreService);
-            System.out.println("Server is ready.");
+            System.out.println("");
+            System.out.println("---------Server is ready-------------");
 
         }
         catch (Exception e){
