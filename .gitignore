@@ -1,0 +1,41 @@
+####################################
+# Gitignore global - Java + Maven + IDE
+####################################
+
+# === Fichiers compilés ===
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# === Dossiers de build Maven/Gradle (tous projets) ===
+*/target/
+*/build/
+.gradle/
+out/
+
+# === IDEs ===
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# === OS spécifiques ===
+.DS_Store
+Thumbs.db
+
+# === Autres archives ===
+*.zip
+*.tar.gz
+*.rar
