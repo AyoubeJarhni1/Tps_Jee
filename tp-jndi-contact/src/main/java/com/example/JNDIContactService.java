@@ -23,7 +23,7 @@ public class JNDIContactService {
         ref.add(new StringRefAddr("nom", contact.getNom()));
         ref.add(new StringRefAddr("email", contact.getEmail()));
         ref.add(new StringRefAddr("telephone", contact.getTelephone()));
-        ctx.bind(nom, ref);
+        ctx.bind("contacts/" + nom, ref);
     }
 
     public Contact rechercherContact(String nom) throws NamingException {

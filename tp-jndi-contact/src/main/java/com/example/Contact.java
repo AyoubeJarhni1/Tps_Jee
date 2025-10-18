@@ -28,3 +28,5 @@ public class Contact implements Serializable {
         return "Nom: " + nom + ", Email: " + email + ", Téléphone: " + telephone;
     }
 }
+
+
