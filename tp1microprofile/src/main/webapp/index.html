@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 MicroProfile - API REST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .endpoint {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .endpoint-method {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+        
+        .get { background: #61affe; color: white; }
+        .post { background: #49cc90; color: white; }
+        .put { background: #fca130; color: white; }
+        .delete { background: #f93e3e; color: white; }
+        
+        .endpoint-path {
+            color: #333;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+        }
+        
+        .endpoint-desc {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .link-button {
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .link-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .info-box strong {
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TP1 MicroProfile</h1>
+        <p class="subtitle">API REST avec MicroProfile - Gestion de Produits et Clients</p>
+        
+        <div class="info-box">
+            <strong>📋 Information:</strong> Cette application utilise MicroProfile pour fournir une API REST complète avec Health Checks, Metrics et OpenAPI.
+        </div>
+        
+        <div class="section">
+            <h2>📦 Endpoints Produits</h2>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <span class="endpoint-path">/api/products</span>
+                <div class="endpoint-desc">Récupérer tous les produits</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <span class="endpoint-path">/api/products/{id}</span>
+                <div class="endpoint-desc">Récupérer un produit par ID</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <span class="endpoint-path">/api/products/category/{category}</span>
+                <div class="endpoint-desc">Récupérer les produits par catégorie</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <span class="endpoint-path">/api/products</span>
+                <div class="endpoint-desc">Créer un nouveau produit</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method put">PUT</span>
+                <span class="endpoint-path">/api/products/{id}</span>
+                <div class="endpoint-desc">Mettre à jour un produit</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method delete">DELETE</span>
+                <span class="endpoint-path">/api/products/{id}</span>
+                <div class="endpoint-desc">Supprimer un produit</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>👥 Endpoints Clients</h2>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <span class="endpoint-path">/api/clients</span>
+                <div class="endpoint-desc">Récupérer tous les clients</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <span class="endpoint-path">/api/clients/{id}</span>
+                <div class="endpoint-desc">Récupérer un client par ID</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <span class="endpoint-path">/api/clients</span>
+                <div class="endpoint-desc">Créer un nouveau client</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method put">PUT</span>
+                <span class="endpoint-path">/api/clients/{id}</span>
+                <div class="endpoint-desc">Mettre à jour un client</div>
+            </div>
+            <div class="endpoint">
+                <span class="endpoint-method delete">DELETE</span>
+                <span class="endpoint-path">/api/clients/{id}</span>
+                <div class="endpoint-desc">Supprimer un client</div>
+            </div>
+        </div>
+        
+        <div class="links">
+            <a href="/openapi" class="link-button">📄 OpenAPI Spec</a>
+            <a href="/openapi/ui" class="link-button">📖 API Documentation</a>
+            <a href="/health" class="link-button">❤️ Health Checks</a>
+            <a href="/metrics" class="link-button">📊 Metrics</a>
+            <a href="/api/config" class="link-button">⚙️ Configuration</a>
+        </div>
+    </div>
+</body>
+</html>
