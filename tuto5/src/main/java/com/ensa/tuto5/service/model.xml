@@ -1,0 +1,37 @@
+<configuration xmlns="http://java.sun.com/xml/ns/metro/config">
+  <security>
+    <usernameToken
+        authentication="PasswordText"
+        passwordDigest="false"
+        nonce="true"/>
+    <signature
+        keyStoreLocation="server-keystore.jks"
+        keyStorePassword="changeit"
+        keyAlias="serverkey"
+        keyPassword="changeit"/>
+    <encryption
+        keyStoreLocation="server-keystore.jks"
+        keyStorePassword="changeit"
+        keyAlias="serverkey"
+        keyPassword="changeit"/>
+  </security>
+    <policy xmlns="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+    <ExactlyOne>
+      <All>
+        <sp:SupportingTokens>
+          <wsp:Policy>
+            <sp:UsernameToken
+                sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/
+                securitypolicy/IncludeToken/AlwaysToRecipient"/>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+        <sp:SignedParts>
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:EncryptedParts>
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </All>
+    </ExactlyOne>
+  </policy>
+</configuration>

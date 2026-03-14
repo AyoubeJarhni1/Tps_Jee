@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://java.sun.com/xml/ns/jaxws"
+             xmlns:wsit="http://java.sun.com/xml/ns/wsit/wsit"
+             xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+
+    <wsit:security>
+        <!-- Authentification UsernameToken -->
+        <wsit:username-token>
+            <wsit:password-plain-text/>
+        </wsit:username-token>
+
+        <!-- Signature / Encryption -->
+        <wsit:sign-encrypt>
+            <wsit:key-store>
+                <wsit:location>server-keystore.jks</wsit:location>
+                <wsit:password>password</wsit:password>
+                <wsit:alias>serverkey</wsit:alias>
+            </wsit:key-store>
+        </wsit:sign-encrypt>
+    </wsit:security>
+</definitions>
